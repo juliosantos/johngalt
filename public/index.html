@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Remote Debugger</title>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="remote_debugger_admin.css" rel="stylesheet">
+    
+    <script src="socket.io/socket.io.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="underscore.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="remote_debugger_admin.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#monitor" data-toggle="tab">Monitor</a></li>
+            <li><a href="#executor" data-toggle="tab">Execute</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="monitor">
+              <p>
+                <small>Remote logs will also be <strong>printed to the console</strong> and assigned to <code>window.debugInfo</code></small>
+                <br>
+                <small>Remote log blocking? Click</small>
+                <button id="debug-release" class="btn btn-primary btn-xs" disabled=true>release</button>
+              </p>
+              <pre id="debug-info"></pre>
+            </div>
+            <div class="tab-pane" id="executor">
+              <p>
+                <small>Remote execution info will be <strong>printed to the console</strong> and assigned to <code>window.executionInfo</code></small>
+              </p>
+              <textarea class="form-control"></textarea>
+              <p>
+                <button id="debug-execute" class="btn btn-primary" data-executing-text="Executing...">Execute</button>
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
