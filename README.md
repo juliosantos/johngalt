@@ -42,8 +42,8 @@ Remote logging from the application to debug is done as follows:
 ```js
 RemoteDebuggerClient.log( {foo : bar} )
 ```
-If you pass `true` as a second parameter, the log will block execution until it's released on the Admin interface.
+If you pass `false` as a second parameter, the log will block execution until it's released on the Admin interface.
 ```js
-RemoteDebuggerClient.log( {foo : bar}, true )
+RemoteDebuggerClient.log( {foo : bar}, false )
 ```
 

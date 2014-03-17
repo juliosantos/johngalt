@@ -21,7 +21,7 @@ require(["jquery.min","JSON.prune","socket.io/socket.io"], function() {
       try {
         var returnValue = eval( debugInfo );
       } catch (exception) {
-        var returnValue = exception;
+        var returnValue = {error : {stack : exception.stack, message : exception.message}};
       }
 
       callback( {returnValue : returnValue} );
