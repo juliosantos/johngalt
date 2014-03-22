@@ -20,13 +20,13 @@ Check out https://devcenter.heroku.com/articles/node-websockets for more informa
 ### Including the client library
 You will need to include the remote debugging client library on the page you want to debug with:
 ```html
-<script data-main="http://localhost:5000/remote_debugger_client" src="http://localhost:5000/require.js"></script>
+<script src="http://localhost:3000/remote_debugger_client"></script>
 ```
-Replace `http://localhost:5000` with your server URL.
+Replace `http://localhost:3000` with your server URL.
 
 ## Admin interface
 
-The admin interface will be available at the server root. That will be http://localhost:5000/, or wherever else you have it running.
+The admin interface will be available at the server root. That will be http://localhost:3000/, or wherever else you have it running.
 
 ### Monitor remote logs
 
