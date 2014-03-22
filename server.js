@@ -1,15 +1,24 @@
 var express = require( "express" );
-var cors = require( "cors" );
 require( "events" ).EventEmitter;
 
 var app = express();
-app.use( cors() );
+app.use( require( "cors" )() );
 app.use( express.urlencoded() );
 app.use( express.json() );
+app.use( require("connect-assets")({
+  build : true,
+  buildDir : "builtAssets",
+  paths : ["public","node_modules/socket.io/node_modules/socket.io-client/dist"]
+}));
 app.use( express.static( __dirname + '/public' ) );
+ 
 
 app.get( "/", function (request, response) {
   response.sendfile( "public/index.html" );
+});
+
+app.get( "/remote_debugger_client", function (request, response) {
+  response.sendfile( __dirname + assetPath("remote_debugger_client" ).replace( /assets/, "builtAssets") );
 });
 
 app.post( "/debug_log_async", function(request, response) {
@@ -35,7 +44,7 @@ app.post( "/debug_execute", function(request, response) {
   });
 });
 
-var server = app.listen( process.env.PORT || 5000 );
+var server = app.listen( process.env.PORT || 3000 );
 
 var io = require( "socket.io" ).listen( server, {log : false} );
 

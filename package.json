@@ -6,7 +6,8 @@
   "dependencies": {
     "express": "3.x",
     "cors": "^2.2.0",
-    "socket.io": "^0.9.16"
+    "socket.io": "^0.9.16",
+    "connect-assets": "^3.0.0-beta2"
   },
   "scripts": {
     "start": "node server.js"
